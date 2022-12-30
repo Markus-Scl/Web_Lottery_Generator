@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Markus-Scl/Web_Lottery_Generator/issues"
   },
-  "homepage": "https://github.com/Markus-Scl/Web_Lottery_Generator#readme"
+  "homepage": "https://github.com/Markus-Scl/Web_Lottery_Generator#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
