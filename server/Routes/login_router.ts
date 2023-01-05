@@ -2,6 +2,7 @@ import express from "express";
 import bcrypt from "bcrypt"
 import jwt from "jwt-simple"
 import { User } from "../Entities/user";
+import 'dotenv/config'
 
 const router = express.Router();
 
@@ -19,7 +20,7 @@ router.post("lottery-generator/api/login", async (req, res) => {
 
     try{
         if(await bcrypt.compare(password, user.password)){
-
+            generateAndSendToken(user.email, res);
         }else{
             res.sendStatus(401);
         }
@@ -27,5 +28,11 @@ router.post("lottery-generator/api/login", async (req, res) => {
 
     }
 });
+
+function generateAndSendToken(user_email: string, res: any){
+    let payload = {id: user_email};
+    let token = jwt.encode(payload, String(process.env.TOKEN_SECRET));
+    return res.status(200).json(token);
+}
 
 export {router as login_router};

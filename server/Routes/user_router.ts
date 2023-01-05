@@ -9,7 +9,7 @@ router.get("lottery-generator/api/user", async (req, res) => {
     }catch(e){
         return res.status(500).json(e);
     }
-})
+});
 
 router.get("lottery-generator/api/user/:id", async (req, res) => {
     try{
@@ -17,4 +17,6 @@ router.get("lottery-generator/api/user/:id", async (req, res) => {
     }catch(e){
         return res.status(500).json(e);
     }
-})
+});
+
+export {router as user_router};
