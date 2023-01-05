@@ -14,13 +14,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon'
+import { RouterModule, Routes } from '@angular/router';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
-
+const routes: Routes = [
+  { path: 'Lottery-Generator/Login', component: LoginPageComponent },
+  { path: '',   redirectTo: 'Lottery-Generator/Login', pathMatch: 'full' },
+  { path: 'Lottery-Generator/Register', component: RegisterPageComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,8 @@ import { MatIconModule } from '@angular/material/icon'
     MatFormFieldModule,
     MatInputModule,
     FormsModule, ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [ApiService, DataStoreService],
   bootstrap: [AppComponent]
