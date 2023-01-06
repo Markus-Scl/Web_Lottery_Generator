@@ -8,8 +8,9 @@ import { user_router } from "../Routes/user_router";
 
 const app = express();
 
+const cors = require('cors');
 
-
+const port = 3000;
 const main = async () => {
 
     try{
@@ -28,11 +29,13 @@ const main = async () => {
 
         let connection = await dataSource.initialize();
 
-        app.use(express.json);
+        app.use(express.json());
         app.use(login_router, register_router, user_router);
+        app.use(cors);
 
-        app.listen(3000, () => {
-            console.log("Server running on port", 3000);
+
+        app.listen(port, () => {
+            console.log("Server running on port", port);
         });
 
     }catch(e){

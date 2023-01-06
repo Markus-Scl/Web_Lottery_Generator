@@ -17,6 +17,8 @@ import { MatIconModule } from '@angular/material/icon'
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterPageComponent } from './register-page/register-page.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 const routes: Routes = [
   { path: 'Lottery-Generator/Login', component: LoginPageComponent },
   { path: '',   redirectTo: 'Lottery-Generator/Login', pathMatch: 'full' },
@@ -39,7 +41,8 @@ const routes: Routes = [
     MatInputModule,
     FormsModule, ReactiveFormsModule,
     MatIconModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [ApiService, DataStoreService],
   bootstrap: [AppComponent]

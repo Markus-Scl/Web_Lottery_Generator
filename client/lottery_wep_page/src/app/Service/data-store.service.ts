@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
-import { JWT, LotteryNumbers, User } from '../Types/types';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { JWT, LotteryNumbers, User, UserData } from '../Types/types';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -12,5 +13,12 @@ export class DataStoreService {
   currentUser: Subject<User> = new Subject<User>();
   recentNumbers: BehaviorSubject<LotteryNumbers[]> = new BehaviorSubject<LotteryNumbers[]>([]);
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private router: Router) { 
+
+  }
+
+  registerUser(userData: UserData): Observable<User> {
+    console.log("dataStore");
+    return this.apiService.registerUser(userData);
+  }
 }

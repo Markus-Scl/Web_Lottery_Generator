@@ -4,7 +4,11 @@ import { User } from "../Entities/user";
 
 const router = express.Router();
 
-router.post("lottery-generator/api/register", async (req, res) => {
+
+router.get('/lottery-generator/api/register', async (req, res) => {
+    return res.sendStatus(200);
+});
+router.post("/lottery-generator/api/register", async (req, res) => {
     try{
         let {
             first_name,
@@ -17,7 +21,7 @@ router.post("lottery-generator/api/register", async (req, res) => {
             email: string,
             password: string,
         } = req.body;
-
+        console.log(req.body);
         first_name = first_name.trim();
         last_name = last_name.trim();
         email = email.trim();
@@ -35,11 +39,12 @@ router.post("lottery-generator/api/register", async (req, res) => {
             email: email,
             password: hashed_password
         });
-
-        await User.insert(new_user);
+        console.log(new_user);
+        //await User.insert(new_user);
         return res.status(200).json(new_user);
 
     }catch(e){
+        console.log("hello");
         return res.status(500).json(e);
     }
 });

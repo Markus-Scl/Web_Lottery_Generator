@@ -25,7 +25,7 @@ export class LoginPageComponent {
   }
 
   getErrorMessageForPassword(){
-    if (this.email.hasError('required')) {
+    if (this.password.hasError('required')) {
       return 'You must enter a value';
     }
     return

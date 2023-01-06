@@ -1,1 +1,45 @@
-<p>register-page works!</p>
+<div class="register-container">
+    <div class="form-container">
+        <div style="height: 90%; width: 90%;">
+            <div class="headline-container">
+                <h1>Register</h1>
+            </div>
+            <div class="first-name-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your first name</mat-label>
+                    <input matInput [formControl]="firstName" required>
+                    <mat-error *ngIf="firstName.hasError('required')">{{getErrorMessageForFirstName()}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="last-name-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your last name</mat-label>
+                    <input matInput [formControl]="lastName" required>
+                    <mat-error *ngIf="lastName.hasError('required')">{{getErrorMessageForLastName()}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="email-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your email</mat-label>
+                    <input matInput [formControl]="email" required>
+                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+            </div>
+            
+            <div class="password-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required>
+                    <mat-error *ngIf="password.hasError('required')">{{getErrorMessageForPassword()}}</mat-error>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+            <div class="button-container">
+                <button mat-flat-button (click)="onLoginClick()">Back to Login</button>
+                <button mat-flat-button color="primary" style="margin-left: auto; margin-right: 0;" (click)="onRegisterClick()">Register</button>
+            </div>
+        </div>
+    </div>
+</div>
