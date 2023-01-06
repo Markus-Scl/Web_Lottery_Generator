@@ -7,6 +7,7 @@ import 'dotenv/config'
 const router = express.Router();
 
 router.post("/lottery-generator/api/login", async (req, res) => {
+    console.log("hello")
     let email = String(req.body.email);
     let password = String(req.body.password);
 
@@ -15,17 +16,17 @@ router.post("/lottery-generator/api/login", async (req, res) => {
     });
 
     if(!user){
-        return res.status(404).json({"Error": "Email not found!"});
+        return res.sendStatus(401);
     }
 
     try{
         if(await bcrypt.compare(password, user.password)){
             generateAndSendToken(user.user_id, res);
         }else{
-            res.sendStatus(401);
+           return res.sendStatus(401);
         }
     }catch(e){
-
+        return res.sendStatus(401);
     }
 });
 

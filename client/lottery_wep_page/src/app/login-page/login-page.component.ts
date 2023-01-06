@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { DataStoreService } from '../Service/data-store.service';
 import { JWT, LoginData } from '../Types/types';
 
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -11,13 +13,16 @@ import { JWT, LoginData } from '../Types/types';
 })
 export class LoginPageComponent {
 
+  invalidCredentials = false;
+
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required]);
   hide = true;
 
-  constructor(private router: Router, private dataStoreService: DataStoreService){
+  constructor(private router: Router, private dataStoreService: DataStoreService, private snackBar: MatSnackBar){
 
   }
+
   getErrorMessage() {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
@@ -39,12 +44,24 @@ export class LoginPageComponent {
         password: String(this.password.value)
       };
 
-      this.dataStoreService.loginUser(loginData).subscribe((jwt : JWT) => {
-        this.dataStoreService.JWT = jwt;
-        this.dataStoreService.JWT.id = jwt.token.split('.')[1];
-        localStorage.setItem('token', JSON.stringify(this.dataStoreService.JWT));
-        this.router.navigate(['Lottery-Generator/Main-Page']);
-      });
+      if(loginData.email.length === 0 || loginData.password.length === 0){
+          //this.snackBar.open("Please fill out all fields!", "", {duration: 4000, panelClass: ['snack-bar-warning']});
+      }else{
+        this.dataStoreService.loginUser(loginData).subscribe((jwt : JWT) => {
+          this.dataStoreService.JWT = jwt;
+          this.dataStoreService.JWT.id = jwt.token.split('.')[1];
+          localStorage.setItem('token', JSON.stringify(this.dataStoreService.JWT));
+          this.invalidCredentials = false;
+          this.router.navigate(['Lottery-Generator/Main-Page']);
+        }, error => {
+          if(error.status === 401){
+            this.invalidCredentials = true;
+          }
+        });
+      }
+
+      
+      
   }
 
   onRegisterClick(){
