@@ -18,18 +18,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterPageComponent } from './register-page/register-page.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { MainPageComponent } from './main-page/main-page.component';
 
 const routes: Routes = [
   { path: 'Lottery-Generator/Login', component: LoginPageComponent },
   { path: '',   redirectTo: 'Lottery-Generator/Login', pathMatch: 'full' },
-  { path: 'Lottery-Generator/Register', component: RegisterPageComponent }
+  { path: 'Lottery-Generator/Register', component: RegisterPageComponent },
+  { path: 'Lottery-Generator/Main-Page', component: MainPageComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,

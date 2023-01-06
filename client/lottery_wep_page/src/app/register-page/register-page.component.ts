@@ -59,9 +59,9 @@ export class RegisterPageComponent {
       email: String(this.email.value),
       password: String(this.password.value)
     }
-    console.log('click');
+   
     this.dataStoreService.registerUser(userData).subscribe(data => {
-      console.log(data);
+      this.router.navigate(['Lottery-Generator/Login']);
     })
   }
 }

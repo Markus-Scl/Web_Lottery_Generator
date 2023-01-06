@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DataStoreService } from '../Service/data-store.service';
+import { JWT, LoginData } from '../Types/types';
 
 @Component({
   selector: 'app-login-page',
@@ -13,7 +15,7 @@ export class LoginPageComponent {
   password = new FormControl('', [Validators.required]);
   hide = true;
 
-  constructor(private router: Router){
+  constructor(private router: Router, private dataStoreService: DataStoreService){
 
   }
   getErrorMessage() {
@@ -32,7 +34,17 @@ export class LoginPageComponent {
   }
 
   onLoginClick(){
-    alert('logged in');
+      let loginData: LoginData = {
+        email: String(this.email.value),
+        password: String(this.password.value)
+      };
+
+      this.dataStoreService.loginUser(loginData).subscribe((jwt : JWT) => {
+        this.dataStoreService.JWT = jwt;
+        this.dataStoreService.JWT.id = jwt.token.split('.')[1];
+        localStorage.setItem('token', JSON.stringify(this.dataStoreService.JWT));
+        this.router.navigate(['Lottery-Generator/Main-Page']);
+      });
   }
 
   onRegisterClick(){

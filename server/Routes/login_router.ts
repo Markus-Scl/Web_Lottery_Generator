@@ -6,7 +6,7 @@ import 'dotenv/config'
 
 const router = express.Router();
 
-router.post("lottery-generator/api/login", async (req, res) => {
+router.post("/lottery-generator/api/login", async (req, res) => {
     let email = String(req.body.email);
     let password = String(req.body.password);
 
@@ -20,7 +20,7 @@ router.post("lottery-generator/api/login", async (req, res) => {
 
     try{
         if(await bcrypt.compare(password, user.password)){
-            generateAndSendToken(user.email, res);
+            generateAndSendToken(user.user_id, res);
         }else{
             res.sendStatus(401);
         }
@@ -29,10 +29,10 @@ router.post("lottery-generator/api/login", async (req, res) => {
     }
 });
 
-function generateAndSendToken(user_email: string, res: any){
-    let payload = {id: user_email};
+function generateAndSendToken(user_id: number, res: any){
+    let payload = {id: user_id};
     let token = jwt.encode(payload, String(process.env.TOKEN_SECRET));
-    return res.status(200).json(token);
+    return res.status(200).json({token});
 }
 
 export {router as login_router};

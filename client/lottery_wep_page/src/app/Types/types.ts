@@ -13,6 +13,11 @@ export interface UserData {
     password: string;
 }
 
+export interface LoginData {
+    email: string;
+    password: string;
+}
+
 export interface LotteryNumbers{
     fiveFromFifty: number[];
     twoFromTwelve: number[];
