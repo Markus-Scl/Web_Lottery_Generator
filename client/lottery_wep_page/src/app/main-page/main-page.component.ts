@@ -19,7 +19,6 @@ export class MainPageComponent implements OnInit{
       this.router.navigate(['Lottery-Generator/Login']);
       return;
     }
-    console.log("hello");
     let token = JSON.parse(tokenString);
 
     if(token !== null){

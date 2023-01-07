@@ -1,0 +1,44 @@
+.lottery-draw-container{
+    height: 90%;
+    width: 100%;
+    background-color: #ffe5a9;
+}
+
+.lottery-balls-container{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lottery-ball{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #333;
+    animation: fadeIn 3s;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    margin-right: 15px;
+}
+
+.button-container{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.space{
+    margin-left: 100px;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }

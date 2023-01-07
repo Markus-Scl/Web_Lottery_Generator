@@ -25,6 +25,7 @@ import { ToolbarComponent } from './main-page/toolbar/toolbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LotteryDrawPageComponent } from './main-page/lottery-draw-page/lottery-draw-page.component';
 
 const routes: Routes = [
   { path: 'Lottery-Generator/Login', component: LoginPageComponent },
@@ -39,7 +40,8 @@ const routes: Routes = [
     LoginPageComponent,
     RegisterPageComponent,
     MainPageComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    LotteryDrawPageComponent
   ],
   imports: [
     BrowserModule,
