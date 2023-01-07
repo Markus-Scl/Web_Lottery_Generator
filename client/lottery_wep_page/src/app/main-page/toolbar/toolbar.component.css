@@ -30,5 +30,17 @@
     align-items: center;
     margin-left: 15px;
     height: 60%;
-    width: 10%;
+    width: 80%;
+}
+
+.drop-down{
+    margin-left: 15px;
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+
+.dropdown-item{
+    cursor: pointer;
 }

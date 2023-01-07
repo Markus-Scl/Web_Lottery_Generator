@@ -7,7 +7,6 @@ import 'dotenv/config'
 const router = express.Router();
 
 router.post("/lottery-generator/api/login", async (req, res) => {
-    console.log("hello")
     let email = String(req.body.email);
     let password = String(req.body.password);
 

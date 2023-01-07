@@ -24,4 +24,8 @@ export class DataStoreService {
   loginUser(loginData: LoginData): Observable<JWT>{
     return this.apiService.loginUser(loginData);
   }
+
+  getUser(): Observable<User>{
+    return this.apiService.getUser(this.JWT);
+  }
 }

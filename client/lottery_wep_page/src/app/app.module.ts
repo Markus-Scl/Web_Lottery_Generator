@@ -24,6 +24,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ToolbarComponent } from './main-page/toolbar/toolbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   { path: 'Lottery-Generator/Login', component: LoginPageComponent },
@@ -54,7 +55,8 @@ const routes: Routes = [
     HttpClientModule, 
     MatSnackBarModule,
     MatToolbarModule,
-    MatSelectModule
+    MatSelectModule,
+    NgbModule
   ],
   providers: [ApiService, DataStoreService],
   bootstrap: [AppComponent]
