@@ -25,7 +25,8 @@
             <div class="button-container">
                 <button mat-flat-button (click)="onRegisterClick()">Register</button>
                 <span *ngIf="invalidCredentials" class="error-message">Invalid password or username!</span>
-                <button mat-flat-button color="primary" style="margin-left: auto; margin-right: 0;" (click)="onLoginClick()">Login</button>
+                <!--<button mat-flat-button color="primary" style="margin-left: auto; margin-right: 0;" (click)="onLoginClick()">Login</button>-->
+                <button class="btn btn-outline-info my-2 my-sm-0 search-button" style="margin-left: auto; margin-right: 0;" (click)="onLoginClick()">Login</button>
             </div>
         </div>
     </div>

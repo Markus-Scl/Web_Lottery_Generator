@@ -20,8 +20,15 @@
 }
 
 .person-icon{
-    margin-left: 20px;
     font-size: 30px;
-    color: white;
     cursor: pointer;
+}
+
+.person-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+    height: 60%;
+    width: 10%;
 }
