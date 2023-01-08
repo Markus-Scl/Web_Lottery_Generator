@@ -2,6 +2,9 @@
     <div class="headline-container">
         <h1 *ngIf="seeHeadline" class="headline">Good Luck!</h1>
     </div>
+    <div *ngIf="seeHeadline" class="firework"></div>
+    <div *ngIf="seeHeadline" class="firework"></div>
+    <div *ngIf="seeHeadline" class="firework"></div>
     <div class="lottery-balls-container">
         <div *ngFor="let number of displayedFiveNumbers" class="lottery-ball">{{number}}</div>
         <div class="space"></div>
