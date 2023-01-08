@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #ffe5a9;
 }
 
 .form-container{
@@ -27,6 +28,7 @@ mat-form-field{
 
 h1{
     font-size:35px;
+    color: aliceblue;
 }
 
 .button-container{
@@ -44,6 +46,10 @@ h1{
     opacity: 0.7;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.search-button{
+    color: aliceblue;
 }
 
 

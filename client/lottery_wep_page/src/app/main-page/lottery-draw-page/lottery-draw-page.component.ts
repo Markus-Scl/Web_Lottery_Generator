@@ -14,6 +14,8 @@ export class LotteryDrawPageComponent {
     fiftyArray: number [] = [];
     twelveArray: number [] = [];
 
+    seeHeadline = false;
+
     prefillArrays(fiftyNumbers: number[], tweveNumbers: number[]){
       for(let i = 1; i < 51; i++){
         fiftyNumbers.push(i);
@@ -59,5 +61,7 @@ export class LotteryDrawPageComponent {
       this.displayedTwoNumbers.push(number);
       await new Promise(f => setTimeout(f, 800));
     }
+
+    this.seeHeadline = true;
   }
 }

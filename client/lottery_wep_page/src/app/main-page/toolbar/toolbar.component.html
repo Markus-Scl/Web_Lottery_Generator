@@ -45,8 +45,8 @@
             </li>
           </ul>-->
           <form class="form-inline my-2 my-lg-0 search-form">
-            <input class="form-control mr-sm-2 input-field" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-secondary search-button" type="submit">Search</button>
+            <input *ngIf="searchFunctionAvailable" class="form-control mr-sm-2 input-field" type="search" placeholder="Search" aria-label="Search">
+            <button *ngIf="searchFunctionAvailable" class="btn btn-outline-secondary search-button" type="submit">Search</button>
           </form>
         </div>
     </div>

@@ -1,10 +1,13 @@
 <div class="lottery-draw-container">
+    <div class="headline-container">
+        <h1 *ngIf="seeHeadline" class="headline">Good Luck!</h1>
+    </div>
     <div class="lottery-balls-container">
         <div *ngFor="let number of displayedFiveNumbers" class="lottery-ball">{{number}}</div>
         <div class="space"></div>
         <div *ngFor="let number of displayedTwoNumbers" class="lottery-ball">{{number}}</div>
     </div>
     <div class="button-container">
-        <button type="button" class="btn btn-secondary btn-lg" (click)="drawNumbersFiveFromFifty()">Large button</button>
+        <button type="button" class="btn button btn-lg" (click)="drawNumbersFiveFromFifty()">Draw Numbers</button>
     </div>
 </div>

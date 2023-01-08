@@ -10,6 +10,7 @@ import { User } from 'src/app/Types/types';
 })
 export class ToolbarComponent implements OnInit{
 
+  searchFunctionAvailable = false;
   constructor(private router: Router, private dataStoreService: DataStoreService){
 
   }

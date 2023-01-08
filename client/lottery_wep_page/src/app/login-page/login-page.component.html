@@ -1,32 +1,34 @@
 <div class="login-container">
     <div class="form-container">
-        <div style="height: 90%; width: 90%;">
-            <div class="headline-container">
-                <h1>Login</h1>
-            </div>
-            <div class="email-container">
-                <mat-form-field appearance="fill">
-                    <mat-label>Enter your email</mat-label>
-                    <input matInput [formControl]="email" required>
-                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-                </mat-form-field>
-            </div>
-            
-            <div class="password-container">
-                <mat-form-field appearance="fill">
-                    <mat-label>Enter your password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required>
-                    <mat-error *ngIf="password.hasError('required')">{{getErrorMessageForPassword()}}</mat-error>
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                </mat-form-field>
-            </div>
-            <div class="button-container">
-                <button mat-flat-button (click)="onRegisterClick()">Register</button>
-                <span *ngIf="invalidCredentials" class="error-message">Invalid password or username!</span>
-                <!--<button mat-flat-button color="primary" style="margin-left: auto; margin-right: 0;" (click)="onLoginClick()">Login</button>-->
-                <button class="btn btn-outline-info my-2 my-sm-0 search-button" style="margin-left: auto; margin-right: 0;" (click)="onLoginClick()">Login</button>
+        <div style="height: 80%; width: 90%; background-color: #333; display: flex; justify-content: center; align-items: center;">
+            <div style="width: 95%; height: 95%;">
+                <div class="headline-container">
+                    <h1>Login</h1>
+                </div>
+                <div class="email-container">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your email</mat-label>
+                        <input matInput [formControl]="email" required>
+                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </div>
+                
+                <div class="password-container">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required>
+                        <mat-error *ngIf="password.hasError('required')">{{getErrorMessageForPassword()}}</mat-error>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <div class="button-container">
+                    <button class="btn btn-outline-secondary" (click)="onRegisterClick()">Register</button>
+                    <span *ngIf="invalidCredentials" class="error-message">Invalid password or username!</span>
+                    <!--<button mat-flat-button color="primary" style="margin-left: auto; margin-right: 0;" (click)="onLoginClick()">Login</button>-->
+                    <button class="btn btn-outline-secondary search-button" style="margin-left: auto; margin-right: 0;" (click)="onLoginClick()">Login</button>
+                </div>
             </div>
         </div>
     </div>
